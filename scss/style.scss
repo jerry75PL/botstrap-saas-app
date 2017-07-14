@@ -1,0 +1,292 @@
+$grey: #777;
+$white: #fff;
+$blue: #0ed8d6;
+$black:#222;
+$main-font: 'Roboto Slab',
+serif;
+$mont-font:'Montserrat',
+sans-serif;
+
+@mixin absolute-center {
+    position: absolute;
+    top: 50%;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+* {
+    transition: all 0.3s linear;
+}
+
+
+/*my general style*/
+
+body {
+    margin: 0;
+    font-family: $main-font;
+    color: $grey;
+}
+
+h1 {
+    font-size: 4em;
+    color: $white;
+    padding: 10px;
+}
+
+h2 {
+    font-size: 3em;
+    color: #333;
+    text-transform: uppercase;
+    padding: 10px;
+}
+
+section {
+    padding: 50px 0;
+}
+
+.row {
+    padding: 20px 0;
+}
+
+
+/* styl dla wszystkich button */
+
+a.btn-blue,
+.btn-blue {
+    background-color: $blue;
+    border: 1px solid $blue;
+    font-family: $mont-font;
+    text-transform: uppercase;
+    padding: 15px 30px;
+    color: $white;
+    &:hover {
+        background-color: $white;
+        border: 1px solid $blue;
+        color: $blue;
+    }
+}
+
+
+/* klasa dl ikon sm */
+
+.contact-social a {
+    display: inline-block;
+    border: 1px solid $black;
+    background: $black;
+    border-radius: 50%;
+    margin: 10px;
+    color: $white;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    font-size: 2em;
+    &:hover {
+        border: 1px solid $blue;
+        background-color: $blue;
+    }
+}
+
+
+/*my style*/
+
+
+/* nav style */
+
+#main-nav {
+    background-color: transparent;
+    border: 0;
+    a.navbar-brand {
+        font-size: 2em;
+        font-family: 'Droid Serif', sans-serif;
+    }
+    a {
+        color: $white;
+        font-family: $mont-font;
+        &:hover {
+            color: $blue;
+        }
+    }
+    &.nav-scroll {
+        background-color: $blue;
+        a {
+            color: $white;
+            &:hover {
+                color: $grey;
+            }
+        }
+    }
+}
+
+
+/* header */
+
+#main-header {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4)), url(../img/header/pictures_on_the_wall.jpg) no-repeat;
+    background-size: cover;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: 600px;
+    padding: 0;
+    #main-header-caption {
+        @include absolute-center;
+        p {
+            color: $white;
+            font-size: 3em;
+            font-style: italic;
+        }
+    }
+}
+
+
+/*Services Style*/
+
+.services-icons {
+    color: $blue;
+    font-size: 3em;
+    .services-icon {
+        background: $blue;
+        border-radius: 50%;
+    }
+    &:hover>.services-icon {
+        color: $blue;
+        transform: rotate(360deg);
+        border: 1px solid $blue;
+        border-radius: 50%;
+        background: none;
+    }
+}
+
+
+/*portfolio */
+
+#portfolio {
+    background: #f7f7f7;
+    .portfolio-block {
+        background: $white;
+        margin-bottom: 40px;
+        p {
+            padding-bottom: 20px;
+        }
+        .portfolio-items {
+            width: 100%;
+            height: 300px;
+            overflow: hidden;
+            .portfolio-item {
+                height: 100%;
+                background-size: cover;
+                position: relative;
+                .portfolio-mask {
+                    background-color: rgba(16, 216, 216, 0.6);
+                    width: 100%;
+                    height: 100%;
+                    opacity: 0;
+                    transition: all 0.3s ease-in-out;
+                    position: absolute;
+                    cursor: pointer;
+                    .portfolio-inner-content {
+                        color: $white;
+                        @include absolute-center;
+                    }
+                    &:hover {
+                        opacity: 1;
+                    }
+                }
+                &:hover {
+                    transform: scale(1.5);
+                }
+            }
+        }
+    }
+}
+
+#portfolio-1 {
+    background-image: url(../img/portfolio/chestnut_on_bracket.jpg);
+}
+
+#portfolio-2 {
+    background-image: url(../img/portfolio/typing_on_laptop.jpg);
+}
+
+#portfolio-3 {
+    background-image: url(../img/portfolio/child_with_blue_paint.jpg);
+}
+
+#portfolio-4 {
+    background-image: url(../img/portfolio/chaotic_paint.jpg);
+}
+
+#portfolio-5 {
+    background-image: url(../img/portfolio/house_with_blue_doors.jpg);
+}
+
+#portfolio-6 {
+    background-image: url(../img/portfolio/box_of_cookies.jpg);
+}
+
+
+/* team nie potrzeba stylować ikony sm maja styl ogolny na poczatku */
+
+
+/* contact */
+
+#contact {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4)), url(../img/footer/world-map.jpg) no-repeat;
+    background-size: cover;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    min-height: 600px;
+    h2,
+    h3 {
+        color: $white;
+    }
+    input:not([type='submit']),
+    textarea {
+        width: 100%;
+        border: 0 solid;
+    }
+    input,
+    textarea {
+        text-transform: uppercase;
+        padding: 15px;
+        font-family: $mont-font;
+        border-radius: 5px;
+    }
+    input:not(:last-child) {
+        margin-bottom: 30px;
+    }
+    input[type='submit'] {
+        margin-top: 30px;
+    }
+}
+
+
+/* footer */
+
+#footer {
+    .row {
+        padding: 0;
+    }
+    p {
+        margin: auto;
+    }
+    ul {
+        margin-top: 10px;
+    }
+    li a {
+        color: $black;
+        font-family: $mont-font;
+        &:hover {
+            color: $blue;
+            background: none;
+        }
+    }
+}
